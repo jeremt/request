@@ -66,6 +66,8 @@ TODO
 - add `auth(login, password)` method for ssh connect.
 - add `file(type, path...)` method to upload files.
 - add `on(event, cb)` method to listening on HTTPRequest events.
+- Generate dart documentation.
+- Add unit tests.
 
 License
 -------
