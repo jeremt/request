@@ -1,0 +1,4 @@
+name: request
+author: "Jeremie T. <taboada.jeremie@gmail.com>"
+description: Simple Dart class to perform easier HttpRequest.
+version: 0.1.1
