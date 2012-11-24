@@ -48,8 +48,11 @@ Perform DELETE request.
 TODO
 ----
 - Chain methods: `req.get('/', (res) => print(res))..post('/users/2', {'name':'toto'});`
-- add type method to set application type
-- add data method to add more data into the request.
+- add `type(key, value)` method to set application type
+- add `data(key, value)` method to add more data into the request.
+- add `auth(login, password)` method for ssh connect.
+- add `file(type, path...)` method to upload files.
+- add `on(event, cb)` method to listening on HTTPRequest events.
 
 License
 -------
