@@ -6,6 +6,19 @@ Simple Dart class to perform easier HttpRequest.
 Example
 -------
 
+pubspec.yaml :
+
+```yaml
+
+name: your_app_name
+dependencies:
+  request:
+    git: 'git://github.com/JeremieT/request.git'
+
+```
+
+dart script :
+
 ```dart
 
 import 'package:request/request.dart';
@@ -27,7 +40,7 @@ Set request header.
 
 ### Request#route(String method, String url, var data, [Function cb]) {
 
-Perform http request for specific [method], [route] and optional [data].
+Perform http request for specific __method__, __route__ and optional __data__.
 
 ### Request#get(String url, var data, [Function cb])
 
