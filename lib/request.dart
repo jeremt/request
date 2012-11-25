@@ -30,11 +30,29 @@ class Request {
   }
 
   /**
+   * Return the request status.
+   */
+
+  Map get status() {
+    return _req.status;
+  }
+
+  /**
+   * Return the text result
+   */
+
+  String get text() {
+    return _req.responseText;
+  }
+
+  /**
    * Add request header.
    */
 
   void set(String key, String value) {
+    print("$key, $value");
     _req.setRequestHeader(key, value);
+    print("success!");
   }
 
   /**
@@ -65,7 +83,7 @@ class Request {
       header('Content-type', 'application/x-www-form-urlencoded');
 
     _req.open(method, url);
-    _req.on.loadEnd.add(cb);
+    _req.on.loadEnd.add((e) => cb(this));
     _req.send(data);
   }
 

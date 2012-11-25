@@ -1,0 +1,33 @@
+<style>
+
+body {
+  font-family: sans-serif;
+  padding: 42px;
+}
+p {
+  color: #666;
+}
+
+</style>
+
+<h1>Config</h1>
+<p>loading...</p>
+
+<script type="text/javascript" src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+<script type="application/dart">
+
+  import 'package:request/request.dart';
+  import 'dart:html';
+
+  void main() {
+    Request req = new Request();
+    ParagraphElement p = query('p');
+
+    req.get('config.json', (res) {
+      if (res.status != 200 && res.status != 0)
+        return p.text = "Oups, something bad append :s";
+      p.text = "This is ${res.data['name']} and the version is ${res.data['version']}";
+    });
+  }
+
+</script>

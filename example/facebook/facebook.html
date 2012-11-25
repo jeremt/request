@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook</title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+    }
+    input {
+      font-size: 1em;
+      border: none;
+    }
+    input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <p>Fetch facebook info about <input type="text" placeholder="your facebook page"></p>
+  <pre><code id="result"></code></pre>
+
+  <script type="text/javascript" src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  <script type="application/dart">
+
+    import 'package:request/request.dart';
+    import 'dart:html';
+
+    CodeElement result;
+
+    void getFbInfo(String account, Function cb) {
+      String url = "http://graph.facebook.com/$account";
+      Request req = new Request();
+      req.get(url, cb);
+    }
+
+    void displayResult(Event e) {
+      getFbInfo('egotripapp', (res) {
+        result.text = res.text;
+      });
+    }
+
+    void main() {
+      result = query('#result');
+      query('input[type="text"]').on.change.add(displayResult);
+    }
+
+  </script>
+
+</body>
+</html>
