@@ -36,7 +36,7 @@
     }
 
     void displayResult(Event e) {
-      getFbInfo('egotripapp', (res) {
+      getFbInfo(e.target.value, (res) {
         result.text = res.text;
       });
     }

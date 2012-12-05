@@ -11,7 +11,23 @@ import 'dart:uri';
 
 class Request {
 
+  /**
+   * HttpRequest.
+   */
+
   HttpRequest _req;
+
+  /**
+   * Request types.
+   */
+
+  Map _types = {
+    'html': 'text/html',
+    'json': 'application/json',
+    'urlencoded': 'application/x-www-form-urlencoded',
+    'form': 'application/x-www-form-urlencoded',
+    'form-data': 'application/x-www-form-urlencoded'
+  };
 
   /**
    * Initialize a new request.
@@ -25,34 +41,26 @@ class Request {
    * Return a [Map] from request [responseText].
    */
 
-  Map get data() {
-    return JSON.parse(_req.responseText);
-  }
+  Map get data() => JSON.parse(_req.responseText);
 
   /**
    * Return the request status.
    */
 
-  Map get status() {
-    return _req.status;
-  }
+  Map get status() => _req.status;
 
   /**
    * Return the text result
    */
 
-  String get text() {
-    return _req.responseText;
-  }
+  String get text() => _req.responseText;
 
   /**
    * Add request header.
    */
 
   void set(String key, String value) {
-    print("$key, $value");
     _req.setRequestHeader(key, value);
-    print("success!");
   }
 
   /**
